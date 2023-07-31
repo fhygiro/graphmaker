@@ -1,0 +1,282 @@
+
+<html>
+<head>
+	<title>GraphMaker</title>
+
+	<!-- Sets the basepath for the library if not in same directory -->
+	<script src="scripts/connectMxGraph.js"></script>
+
+	<script type="text/javascript" src="javascript/src/js/mxClient.js"></script>
+	<script src="jquery/3.5.1_jquery.min.js"></script>
+	<script src="scripts/printThis.js"></script>
+	<script src="scripts/toPdf.js"></script>
+	<script src="scripts/main.js"></script>
+	<link rel="stylesheet" href="styles/other.css">
+	<link rel="stylesheet" href="styles/header.css">
+	<link rel="stylesheet" href="styles/questions.css">
+	<link rel="stylesheet" href="styles/modal.css">
+	<link rel="stylesheet" href="styles/report.css">
+</head>
+
+<!-- Page passes the container for the graph to the program -->
+<body onload="main(document.getElementById('graphContainer'))">
+	<div id="wrapper">
+		<header>
+			<div class="logo">
+				<h1>GraphMaker</h1>
+			</div>
+		</header>
+
+		<div id="questions-container">
+
+			<div class="q-block">
+				<div class="q-head">Наименование</div>
+				
+				<div class="q-list">
+					<div class="q-column">
+						<div class="quest">Технологическая карта процесса получения (далее – продукта)</div>
+						<div class="answer"><textarea id="tech-card-f" cols="30" rows="10"></textarea></div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="q-block">
+				<div class="q-head">Область применения продукта</div>
+				
+				<div class="q-list">
+					<div class="q-column">
+						<div class="quest">Продукт применяется в</div>
+						<div class="answer"><textarea id="using-f" cols="30" rows="10"></textarea></div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="q-block">
+				<div class="q-head">Организация и технология проведения работ</div>
+				
+				<div class="q-list">
+					<div class="q-subhead first">Подготовительные работы</div>
+					<div class="q-subhead second">Помещение(я)</div>
+					
+					<div class="q-column">
+						<div class="quest">Требования к помещению(ям)</div>
+						<div class="answer"><textarea id="req-room-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-column">
+						<div class="quest">Подготовка помещения(й)</div>
+						<div class="answer"><textarea id="prep-room-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-subhead second">Оборудование</div>
+
+					<div class="q-column">
+						<div class="quest">Требования к оборудованию</div>
+						<div class="answer"><textarea id="req-equ-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-column">
+						<div class="quest">Подготовка оборудования</div>
+						<div class="answer"><textarea id="prep-equ-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-subhead second">Расходные материалы</div>
+
+					<div class="q-column">
+						<div class="quest">Требования к расходным материалам</div>
+						<div class="answer"><textarea id="req-mat-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-column">
+						<div class="quest">Подготовка расходных материалов</div>
+						<div class="answer"><textarea id="prep-mat-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-subhead second">Исходные продукты</div>
+
+					<div class="q-column">
+						<div class="quest">Требования к исходным продуктам</div>
+						<div class="answer"><textarea id="req-pr-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-column">
+						<div class="quest">Подготовка исходных продуктов</div>
+						<div class="answer"><textarea id="prep-pr-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-subhead second">Используемые методы</div>
+
+					<div class="q-column">
+						<div class="quest">Перечень методов</div>
+						<div class="answer"><textarea id="list-meth-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-column">
+						<div class="quest">Характеристика методов</div>
+						<div class="answer"><textarea id="chr-meth-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-subhead second">Исполнители</div>
+
+					<div class="q-column">
+						<div class="quest">Состав исполнителей</div>
+						<div class="answer"><textarea id="list-executors-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-column">
+						<div class="quest">Требования к исполнителям</div>
+						<div class="answer"><textarea id="req-executors-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-column">
+						<div class="quest">Техника безопасности</div>
+						<div class="answer"><textarea id="sefetly-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-subhead first">Примечания</div>
+					<div class="q-column">
+						<div class="quest">Необходимо обратить внимание на следующие аспекты</div>
+						<div class="answer"><textarea id="att-f" cols="30" rows="10"></textarea></div>
+					</div>
+
+					<div class="q-column">
+						<div class="quest">Список литературы</div>
+						<div class="answer"><textarea id="lit-f" cols="30" rows="10"></textarea></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="graph-main">
+			<div id="left-menu">
+				<div id="add-menu">
+
+					<h3>Добавление элемента</h3>
+					<p id="alert-add"></p>
+
+					<div class="add-form">
+						<input type="text" id="text-elgr-rect" placeholder="Прямоугольник">
+						<button id="add-but-rect">Добавить</button>
+					</div>
+
+					<div class="add-form">
+						<input type="text" id="text-elgr-elips" placeholder="Овал">
+						<button id="add-but-elips">Добавить</button>
+					</div>
+
+				</div>
+				<div id="redact-el-form">
+
+					<h3>Работа с элементом</h3>
+					<div class="block-redact-form">
+						<button id="remove-el-but">Удалить</button>
+						<button id="connect-el-but">Соединить</button>
+					</div>
+
+					<div class="block-redact-form">
+						<strong>Выбор цвета элемента</strong>
+						<div class="color-but-container">
+							<button class="color-but" id="red-but"></button>
+							<button class="color-but" id="green-but"></button>
+							<button class="color-but" id="blue-but"></button>
+							<button class="color-but" id="yellow-but"></button>
+							<button class="color-but" id="pink-but"></button>
+							<button class="color-but" id="orange-but"></button>
+							<button class="color-but" id="default-color-but"></button>
+						</div>
+						<strong>Выбор цвета текста</strong>
+						<div class="color-but-container">
+							<button class="color-but-f" id="red-but"></button>
+							<button class="color-but-f" id="green-but"></button>
+							<button class="color-but-f" id="blue-but"></button>
+							<button class="color-but-f" id="yellow-but"></button>
+							<button class="color-but-f" id="pink-but"></button>
+							<button class="color-but-f" id="orange-but"></button>
+							<button class="color-but-f" id="black-but"></button>
+							<button class="color-but-f" id="white-but"></button>
+						</div>
+					</div>
+
+					<div class="block-redact-form">
+						<strong>Размер шрифта -</strong>
+						<input type="number" id="resize-inp" class="num-inp" min="1" max="90">
+						<button id="resize-el-but">Установить</button>
+					</div>
+				</div>
+
+			</div>
+			<div id="graphContainer"></div>
+		</div>
+
+		<div id="report-footer">
+			<div class="but-container">
+				<button id="report-but" class="manage-but">Отчет</button>
+				<button id="clear-but" class="manage-but">Отчистить</button>
+				<button id="hide-but" class="manage-but">Скрыть</button>
+			</div>
+		</div>
+
+		<div id="modal-window">
+			<div id="modal-header"></div>
+	
+			<div id="modal-content">
+	
+				<div id="info">
+					<h3>НАИМЕНОВАНИЕ</h3>
+					<p>Технологическая карта процесса получения <strong id="tech-card"></strong> (далее – продукта)</p>
+	
+					<h3>ОБЛАСТЬ ПРИМЕНЕНИЯ ПРОДУКТА</h3>
+					<p>Продукт применяется в <strong id="using"></strong></p>
+	
+					<h3>ОРГАНИЗАЦИЯ И ТЕХНОЛОГИЯ ПРОВЕДЕНИЯ РАБОТ</h3>
+					<h4>1. Подготовительные работы</h4>
+	
+					<p class="subhead">1.1 Помещение(я)</p>
+					<p>1.1а. Требования к помещению(ям): <strong id="req-room"></strong></p>
+					<p>1.1б. Подготовка помещения(й): <strong id="prep-room"></strong></p>
+	
+					<p class="subhead">1.2 Оборудование</p>
+					<p>1.2а. Требования к оборудованию: <strong id="req-equ"></strong></p>
+					<p>1.2б Подготовка оборудования: <strong id="prep-equ"></strong></p>
+	
+					<p class="subhead">1.3 Расходные материалы</p>
+					<p>1.3а Требования к расходным материалам: <strong id="req-mat"></strong></p>
+					<p>1.3б Подготовка расходных материалов: <strong id="prep-mat"></strong></p>
+	
+					<p class="subhead">1.4 Исходные продукты</p>
+					<p>1.4а Требования к исходным продуктам: <strong id="req-pr"></strong></p>
+					<p>1.4б Подготовка исходных продуктов: <strong id="prep-pr"></strong></p>
+	
+					<p class="subhead">1.5 Используемые методы</p>
+					<p>1.5а Перечень методов: <strong id="list-meth"></strong></p>
+					<p>1.5б Характеристика методов: <strong id="chr-meth"></strong></p>
+	
+					<p class="subhead">1.5 Исполнители</p>
+					<p>1.5а Состав исполнителей: <strong id="list-executors"></strong></p>
+					<p>1.5б Требования к исполнителям: <strong id="req-executors"></strong></p>
+					<p>1.5в Техника безопасности: <strong id="sefetly"></strong></p>
+				</div>
+	
+				<div id="graph-modal">
+	
+				</div>
+	
+				<div id="under-graph">
+					<h3>Примечания</h3>
+					<p>Необходимо обратить внимание на следующие аспекты: <strong id="att"></strong></p>
+					<p>Список литературы: <strong id="lit"></strong></p>
+				</div>
+			</div>
+		</div>
+
+		<div id="pdf-div">
+			<div class="but-container">
+				<button id="to-pdf" class="manage-but">Скачать в pdf</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

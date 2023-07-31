@@ -1,0 +1,26 @@
+#report-footer{
+    margin: 15px auto 0;
+    background-color: #FFFAEB;
+    padding: 15px;
+}
+
+.but-container{
+    width: 25%;
+    max-width: 100%;
+    margin: 0 auto 0;
+}
+
+#hide-but{
+    visibility: hidden;
+}
+
+#pdf-div{
+    background-color: #FFFAEB;
+    padding: 15px;
+    display: none;
+}
+
+#clear-but{
+    background-color: #DC3545;
+    color: #ffffff;
+}

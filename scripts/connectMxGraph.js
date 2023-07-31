@@ -1,0 +1,1 @@
+mxBasePath = 'javascript/src';

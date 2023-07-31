@@ -1,0 +1,100 @@
+*{
+    font-family: Avenir,Helvetica,Arial,sans-serif;
+    color: #2C3E55;
+}
+
+.num-inp{
+    width: 60px;
+}
+
+button{
+    cursor: pointer;
+}
+
+#graph-main{
+    display: flex;
+    flex-direction: row;  
+}
+
+#graphContainer{
+    position:relative;
+    overflow:hidden;
+    width: 75%;
+    height: 730px;
+    background-color:#FAFBFD;
+    cursor:default;
+}
+
+#wrapper{
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+#left-menu{
+    width: 25%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    background-color:#F8F7F2;
+}
+
+#add-menu{
+    border-bottom: 3px;
+}
+
+#redact-el-form{
+    visibility: hidden;
+}
+
+.block-redact-form{
+    margin-bottom: 8px;
+}
+
+.add-form{
+    margin-bottom: 5px;
+}
+
+.color-but-container button{
+    width: 20px;
+    height: 15px;
+}
+
+#red-but{
+    background-color:#FF3300;
+}
+
+#green-but{
+    background-color: #00CC00;
+}
+
+#blue-but{
+    background-color: #006699;
+}
+
+#yellow-but{
+    background-color: #FFFF99;
+}
+
+#pink-but{
+    background-color: #FF3399;
+}
+
+#orange-but{
+    background-color: #FF6633;
+}
+
+#black-but{
+    background-color: #000000;
+}
+
+#white-but{
+    background-color: #ffffff;
+}
+
+#default-color-but{
+    background-color: #C3D9FF;
+}
+
+.manage-but{
+    padding: 10px;
+}
